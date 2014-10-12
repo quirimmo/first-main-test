@@ -1,0 +1,23 @@
+{
+  "name": "first-main-test",
+  "description": "First Main Test Project",
+  "version": "1.0.0",
+  "authors": [
+    "Quirino Lo Russo <quirino@jamgling.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "scripts/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "2.1.1",
+    "angular": "1.2.26",
+    "bootstrap": "~3.2.0",
+    "requirejs": "~2.1.15",
+    "requirejs-domready": "~2.0.1"
+  }
+}

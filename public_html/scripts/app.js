@@ -19,7 +19,7 @@ requirejs(["main", "domReady"],
     function(Function, domReady) {
         'use strict';
         domReady(function() {
-            alert("FUNCTION SCRIPT HAS BEEN LOADED");
+            console.log("FUNCTION SCRIPT HAS BEEN LOADED");
         });
     }
 );

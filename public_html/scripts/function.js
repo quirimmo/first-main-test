@@ -1,3 +1,5 @@
+//FILE DEFINED BY REQUIRE IN MAIN.JS
+//you can now use this function in main.js
 function appendElementToBody(el){
-    $('body').append(el);
+    $('#requireInclusionLegend').append(el);
 }

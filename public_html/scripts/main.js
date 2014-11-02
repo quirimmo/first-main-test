@@ -1,12 +1,22 @@
 define(["Function"], function() { 
-    appendElementToBody($("<div>ELEMENT APPENDED TO BODY</div>"));
+    requireInclusion();
     jqueryPromises();
+    manageAsyncEvent();
 }); 
 
+
+
+
+function requireInclusion(){
+    $("button#requireInclusion").on("click", function(){
+        appendElementToBody($("<div>ELEMENT APPENDED TO BODY</div>"));
+    });
+}
+
 function jqueryPromises(){
-    $("button").on("click", function () {
+    $("button#jQueryPromises").on("click", function () {
         $("p").append("Started...");
-        $("div").each(function (i) {
+        $("div.promisesDiv").each(function (i) {
             $(this).fadeIn().fadeOut(1000 * (i + 1));
         });
         $("div").promise().done(function () {
@@ -15,6 +25,11 @@ function jqueryPromises(){
     });
 }
 
+function manageAsyncEvent(){
+    $("button#asyncEventButton").on("click", function(){
+        startAsyncEvent();
+    });
+}
 
 
 function asyncEvent() {
@@ -41,16 +56,18 @@ function asyncEvent() {
     // Return the Promise so caller can't change the Deferred
     return dfd.promise();
 }
- 
-// Attach a done, fail, and progress handler for the asyncEvent
-$.when(asyncEvent()).then(
+
+function startAsyncEvent(){
+    // Attach a done, fail, and progress handler for the asyncEvent
+    $.when(asyncEvent()).then(
         function (status) {
-            alert(status + ", things are going well");
+            console.log(status + ", things are going well");
         },
         function (status) {
-            alert(status + ", you fail this time");
+            console.log(status + ", you fail this time");
         },
         function (status) {
-            $("body").append(status);
+            $("#asyncEventLegend").append(status);
         }
-);
+    );
+}
